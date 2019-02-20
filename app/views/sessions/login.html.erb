@@ -1,0 +1,30 @@
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+<% flash.each do |key, msg| %>
+<h1> <%= msg%> </h1>
+<%end%>
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="https://i0.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png" id="icon" alt="User Icon" />
+    </div>
+
+
+<% @page_title = "UserAuth | Login" -%>
+<div class= "Sign_Form">
+  <h1>Log in</h1>
+  <%= form_tag(:action => 'login_attempt') do %>
+    <p>Username or Email:</br> <%= text_field_tag(:username_or_email) %></p> 
+    <p>Password:</br> <%= password_field_tag :login_password %></p> 
+    <%= submit_tag("Log In") %>
+  <% end %>
+</div>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
+    </div>
+
+  </div>
+</div>
