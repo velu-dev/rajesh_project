@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Subjects</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th  scope="col">Subject name</th>
+      <th  scope="col">Class</th>
+      <th  scope="col" colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @subjects.each do |subject| %>
+      <tr>
+        <td><%= subject.s_name %></td>
+        <td><%=subject.class_detail.description %></td>
+        <td><%= link_to 'Show', subject %></td>
+        <td><%= link_to 'Edit', edit_subject_path(subject) %></td>
+        <td><%= link_to 'Destroy', subject, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Subject', new_subject_path %>

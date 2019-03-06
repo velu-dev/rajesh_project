@@ -2,18 +2,23 @@
 
 <h1>Roles</h1>
 
-<table>
+
+<%= link_to 'New Role', new_role_path ,  class: "btn btn-inverse"%>
+
+<table class="table table-hover">
   <thead>
     <tr>
-      <th>Role name</th>
-      <th>Description</th>
-      <th colspan="3"></th>
+      <th scope="col">#</th>
+      <th scope="col">Role Name</th>
+      <th scope="col">Description</th>
+      <th scope="col" colspan="3">Action</th>
+
     </tr>
   </thead>
-
   <tbody>
     <% @roles.each do |role| %>
       <tr>
+        <td><%= role.id %></td>
         <td><%= role.role_name %></td>
         <td><%= role.description %></td>
         <td><%= link_to 'Show', role %></td>
@@ -23,7 +28,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Role', new_role_path %>

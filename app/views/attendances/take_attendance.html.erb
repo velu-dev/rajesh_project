@@ -1,0 +1,25 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Date</th>
+      <th scope="col">Name</th>
+      <th scope="col">Class</th>
+      <th scope="col" colspan="2">Present Status</th>
+    </tr>
+  </thead>
+  <tbody>
+  <%@students.map do |ss|%>
+    <tr>
+      <th scope="row">1</th>
+      <td><%= Date.today    %></td>
+      <td><%= ss.name %></td>
+      <td><%= ss.class_detail.class_name%></td>
+      <td>
+        <button class="btn btn-success">V</button>
+        <button class="btn btn-danger">X</button>
+      </td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>

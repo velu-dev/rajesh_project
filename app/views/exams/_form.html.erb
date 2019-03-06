@@ -1,0 +1,31 @@
+<%= form_with(model: exam, local: true) do |form| %>
+  <% if exam.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(exam.errors.count, "error") %> prohibited this exam from being saved:</h2>
+
+      <ul>
+      <% exam.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :exam_name %>
+    <%= form.text_field :exam_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_of_exam %>
+    <%= form.text_field :date_of_exam %>
+  </div>
+   <div class="field">
+    <%= form.label :class_detail_id %>
+    <%= form.select(:class_detail_id, ClassDetail.all.collect {|p| [ p.class_name, p.id ] }, {include_blank: "Select Class"}, { :class => 'custom-select' }) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

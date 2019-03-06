@@ -10,7 +10,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_20_083909) do
+ActiveRecord::Schema.define(version: 2019_03_06_051030) do
+
+  create_table "assignments", force: :cascade do |t|
+    t.string "description"
+    t.boolean "isactive"
+    t.integer "user_id"
+    t.integer "class_detail_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["class_detail_id"], name: "index_assignments_on_class_detail_id"
+    t.index ["user_id"], name: "index_assignments_on_user_id"
+  end
+
+  create_table "attendances", force: :cascade do |t|
+    t.boolean "ispresent"
+    t.string "date"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_attendances_on_user_id"
+  end
+
+  create_table "class_details", force: :cascade do |t|
+    t.string "class_name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "exams", force: :cascade do |t|
+    t.string "exam_name"
+    t.string "date_of_exam"
+    t.boolean "isactive"
+    t.integer "class_detail_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["class_detail_id"], name: "index_exams_on_class_detail_id"
+  end
+
+  create_table "marks", force: :cascade do |t|
+    t.string "mark"
+    t.integer "subject_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["subject_id"], name: "index_marks_on_subject_id"
+    t.index ["user_id"], name: "index_marks_on_user_id"
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string "role_name"
@@ -19,14 +66,25 @@ ActiveRecord::Schema.define(version: 2019_02_20_083909) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "subjects", force: :cascade do |t|
+    t.string "s_name"
+    t.string "description"
+    t.integer "class_detail_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["class_detail_id"], name: "index_subjects_on_class_detail_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "password"
     t.string "mobile"
     t.integer "role_id"
+    t.integer "class_detail_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["class_detail_id"], name: "index_users_on_class_detail_id"
     t.index ["role_id"], name: "index_users_on_role_id"
   end
 

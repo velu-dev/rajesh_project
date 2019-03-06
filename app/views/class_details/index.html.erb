@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Class Details</h1>
+<%= link_to 'New Class Detail', new_class_detail_path, class: "btn btn-success" %>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th  scope="col">Class name</th>
+      <th  scope="col">Description</th>
+      <th  scope="col" colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @class_details.each do |class_detail| %>
+      <tr>
+        <td><%= class_detail.class_name %></td>
+        <td><%= class_detail.description %></td>
+        <td><%= link_to 'Show', class_detail %></td>
+        <td><%= link_to 'Edit', edit_class_detail_path(class_detail) %></td>
+        <td><%= link_to 'Destroy', class_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

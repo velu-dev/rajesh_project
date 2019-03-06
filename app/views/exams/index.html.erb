@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Exams</h1>
+<%= link_to 'New Exam', new_exam_path, class: "btn btn-default" %>
+<table class="table table-hover"> 
+  <thead>
+    <tr>
+      <th  scope="col">Exam name</th>
+      <th  scope="col">Date of exam</th>
+      <th  scope="col">Class</th>
+      <th  scope="col" colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @exams.each do |exam| %>
+      <tr>
+        <td><%= exam.exam_name %></td>
+        <td><%= exam.date_of_exam %></td>
+        <td><%= exam.class_detail.class_name %></td>
+        <td><%= link_to 'Show', exam %></td>
+        <td><%= link_to 'Edit', edit_exam_path(exam) %></td>
+        <td><%= link_to 'Destroy', exam, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
