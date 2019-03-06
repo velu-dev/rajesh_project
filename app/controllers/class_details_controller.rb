@@ -28,7 +28,7 @@ class ClassDetailsController < ApplicationController
 
     respond_to do |format|
       if @class_detail.save
-        format.html { redirect_to @class_detail, notice: 'Class detail was successfully created.' }
+        format.html { redirect_to class_details_path, notice: 'Class detail was successfully created.' }
         format.json { render :show, status: :created, location: @class_detail }
       else
         format.html { render :new }
