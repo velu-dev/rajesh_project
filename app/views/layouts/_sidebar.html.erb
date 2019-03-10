@@ -8,19 +8,28 @@
                         <li class="nav-label">Home</li>
                         <% if session[:role_id] == 1%>
                         <li class="nav-label">Dashboard</li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Manage User<span class="label label-rouded label-primary pull-right">0</span></span></a>
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-users"></i><span class="hide-menu">Manage User<span class="label label-rouded label-primary pull-right">0</span></span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="<%=users_path('Admin')%>">Admin</a></li>
                                 <li><a href="<%=users_path('Staff')%>">Staff</a></li>
                                 <li><a href="<%=users_path('Student')%>">Student </a></li>
                             </ul>
                         </li>
-                        <li> <a href="<%= roles_path%>"><i class="fa fa-tachometer"></i><span class="hide-menu">Manage Role<span class="label label-rouded label-primary pull-right">0</span></span></a>
+                        <li> <a href="<%= roles_path%>"><i class="fa fa-id-card"></i><span class="hide-menu">Manage Role<span class="label label-rouded label-primary pull-right">0</span></span></a>
                         </li>
                         <li> 
                             <a href="<%= class_details_path%>">
-                                <i class="fa fa-tachometer"></i>
+                                <i class="fa fa-graduation-cap"></i>
                                     <span class="hide-menu">Manage Class
+                                        <span class="label label-rouded label-primary pull-right">0
+                                        </span>
+                                    </span>
+                            </a>
+                        </li>
+                        <li> 
+                            <a href="<%= events_path%>">
+                                <i class="fa fa-calendar"></i>
+                                    <span class="hide-menu">Manage Events
                                         <span class="label label-rouded label-primary pull-right">0
                                         </span>
                                     </span>
@@ -28,7 +37,7 @@
                         </li>
                         <li>
                             <a href="<%= subjects_path%>">
-                                <i class="fa fa-tachometer"></i>
+                                <i class="fa fa-book    "></i>
                                 <span class="hide-menu">Subject
                                     <span class="label label-rouded label-primary pull-right">0
                                     </span>
@@ -64,6 +73,26 @@
                                     </span>
                                 </a>
                             </li>
+                            <li> 
+                            <a href="<%= events_path%>">
+                                <i class="fa fa-tachometer"></i>
+                                    <span class="hide-menu">Manage Events
+                                        <span class="label label-rouded label-primary pull-right">0
+                                        </span>
+                                    </span>
+                            </a>
+                        </li>
+                        <%end%>
+                        <%if session[:role_id] == 3%>
+                        <li> 
+                            <a href="<%= events_path%>">
+                                <i class="fa fa-tachometer"></i>
+                                    <span class="hide-menu">Manage Events
+                                        <span class="label label-rouded label-primary pull-right">0
+                                        </span>
+                                    </span>
+                            </a>
+                        </li>
                         <%end%>
 
                         <!-- <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-envelope"></i><span class="hide-menu">Email</span></a>
