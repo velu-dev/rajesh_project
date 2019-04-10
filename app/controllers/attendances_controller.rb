@@ -11,6 +11,7 @@ class AttendancesController < ApplicationController
   # GET /attendances/1.json
   def show
   end
+
   def show_class
     @class_detail = ClassDetail.all
   end
@@ -23,8 +24,10 @@ class AttendancesController < ApplicationController
   # GET /attendances/1/edit
   def edit
   end
+
   def take_attendance
-      @students = User.where(class_detail_id: params[:format])
+    @attendance = Attendance.new
+    @students = User.where(class_detail_id: params[:format])
   end
 
   # POST /attendances
@@ -34,7 +37,7 @@ class AttendancesController < ApplicationController
 
     respond_to do |format|
       if @attendance.save
-        format.html { redirect_to @attendance, notice: 'Attendance was successfully created.' }
+        format.html { redirect_to @attendance, notice: "Attendance was successfully created." }
         format.json { render :show, status: :created, location: @attendance }
       else
         format.html { render :new }
@@ -48,7 +51,7 @@ class AttendancesController < ApplicationController
   def update
     respond_to do |format|
       if @attendance.update(attendance_params)
-        format.html { redirect_to @attendance, notice: 'Attendance was successfully updated.' }
+        format.html { redirect_to @attendance, notice: "Attendance was successfully updated." }
         format.json { render :show, status: :ok, location: @attendance }
       else
         format.html { render :edit }
@@ -62,19 +65,20 @@ class AttendancesController < ApplicationController
   def destroy
     @attendance.destroy
     respond_to do |format|
-      format.html { redirect_to attendances_url, notice: 'Attendance was successfully destroyed.' }
+      format.html { redirect_to attendances_url, notice: "Attendance was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_attendance
-      @attendance = Attendance.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def attendance_params
-      params.require(:attendance).permit(:ispresent)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_attendance
+    @attendance = Attendance.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def attendance_params
+    params.require(:attendance).permit(:ispresent)
+  end
 end

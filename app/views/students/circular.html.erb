@@ -1,0 +1,23 @@
+<h1>Circulars</h1>
+<table  class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Content</th>
+      <th scope="col">Desc</th>
+      <th scope="col">Circulated date</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @circulars.each do |circular| %>
+      <tr>
+        <td><%= circular.content %></td>
+        <td><%= circular.desc %></td>
+        <td><%= circular.c_date %></td>
+        <td><%= link_to 'Show', circular %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

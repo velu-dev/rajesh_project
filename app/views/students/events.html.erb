@@ -1,0 +1,33 @@
+<h1>Events</h1>
+<table  class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Event Name </th>
+      <th scope="col">Number of Participates </th>
+      <th scope="col">Event Date </th>
+      <th scope="col">Event Time </th>
+      <th scope="col">Location </th>
+      <th scope="col">Departnment </th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event.name %></td>
+        <td><%= event.participates %></td>
+        <td><%= event.event_date %></td>
+        <td><%= event.event_time %></td>
+        <td><%= event.location %></td>
+        <td><%= display_class(event.class_detail) %></td>
+        <td><%= link_to 'Show', event %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<br>
+

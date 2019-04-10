@@ -9,17 +9,19 @@
     </tr>
   </thead>
   <tbody>
+  <%i =1%>
   <%@students.map do |ss|%>
     <tr>
-      <th scope="row">1</th>
+      <th scope="row"><%=i%></th>
       <td><%= Date.today    %></td>
       <td><%= ss.name %></td>
       <td><%= ss.class_detail.class_name%></td>
       <td>
-        <button class="btn btn-success">V</button>
-        <button class="btn btn-danger">X</button>
+        <button onclick="attendance(<%=ss.id%>, true)" class="btn btn-default">P</button>
+        <button onclick="attendance(<%=ss.id%>, false)" class="btn btn-default">A</button>
       </td>
     </tr>
+    <%i =i+1%>
     <%end%>
   </tbody>
 </table>

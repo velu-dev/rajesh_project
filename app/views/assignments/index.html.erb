@@ -8,6 +8,7 @@
       <th  scope="col">Id</th>
       <th  scope="col">Description</th>
       <th  scope="col">Assigned User</th>
+      <th  scope="col">Assigned Class</th>
       <th  scope="col" colspan="3"></th>
     </tr>
   </thead>
@@ -17,7 +18,8 @@
       <tr>
         <td><%= assignment.id %></td>
         <td><%= assignment.description %></td>
-        <td><%= assignment.user.name %></td>
+        <td><%= display_user(assignment.user) %></td>
+        <td><%= display_class(assignment.class_detail) %></td>
         <td><%= link_to 'Show', assignment %></td>
         <td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>
         <td><%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>

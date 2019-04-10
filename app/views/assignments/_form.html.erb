@@ -15,9 +15,13 @@
     <%= form.label :description %>
     <%= form.text_field :description %>
   </div>
+    <div class="field">
+    <%= form.label :class_detail_id %>
+    <%= form.select(:class_detail_id, ClassDetail.all.collect {|p| [ p.class_name, p.id ] }, {include_blank: "Select something"}, { :class => 'custom-select' }) %>
+  </div>
   <div class="field">
-    <%= form.label :description %>
-    <%= form.select(:role_id, User.where(role_id: 3).collect {|p| [ p.name, p.id ] }, {include_blank: "Select something"}, { :class => 'custom-select' }) %>
+    <%= form.label :user_id %>
+    <%= form.select(:user_id, User.where(role_id: 3).collect {|p| [ p.name, p.id ] }, {include_blank: "Select something"}, { :class => 'custom-select' }) %>
   </div>
 
   <div class="actions">

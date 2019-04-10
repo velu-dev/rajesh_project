@@ -2,42 +2,42 @@
   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
       <ul>
-      <% user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
-
   <div class="field">
     <%= form.label :email %>
     <%= form.text_field :email %>
   </div>
-
   <div class="field">
     <%= form.label :password %>
     <%= form.text_field :password %>
   </div>
-
   <div class="field">
     <%= form.label :mobile %>
     <%= form.text_field :mobile %>
   </div>
-
-  <div class="field">
-    <%= form.label :role_id %>
-    <%#= form.text_field :role_id %>
-    <%= form.select(:role_id, Role.all.collect {|p| [ p.role_name, p.id ] }, {include_blank: "Select Role"}, { :class => 'custom-select' }) %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%if @type == "Student"%>
+    <div class="field">
+      <%= form.label :Class_detail_id %>
+      <%#= form.text_field :role_id %>
+      <%= form.select(:class_detail_id, ClassDetail.all.collect {|p| [ p.class_name, p.id ] }, {include_blank: "Select Class"}, { :class => 'custom-select' }) %>
+    </div>
+  <%end%>
+<div class="field">
+  <%= form.label :role_id %>
+  <%#= form.text_field :role_id %>
+  <%= form.select(:role_id, Role.all.collect {|p| [ p.role_name, p.id ] }, {include_blank: "Select Role"}, { :class => 'custom-select' }) %>
+</div>
+<div class="actions">
+  <%= form.submit %>
+</div>
 <% end %>

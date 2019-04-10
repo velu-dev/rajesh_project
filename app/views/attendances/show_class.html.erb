@@ -4,8 +4,8 @@
         <div class="card" style="width: 18rem;">
             <%= image_tag "class_img/1.jpeg" , :class=> "card-img-top" %>
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the         bulk of the card's content.
+                <h5 class="card-title"><%=cls.class_name%></h5>
+                <p class="card-text"><%=cls.description%>
                 </p>
                 <a href="<%=take_attendance_path(cls.id)%>" class="btn btn-primary">Take Attendance</a>
             </div>

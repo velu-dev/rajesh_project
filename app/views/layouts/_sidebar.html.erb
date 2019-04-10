@@ -35,6 +35,15 @@
                                     </span>
                             </a>
                         </li>
+                           <li> 
+                            <a href="<%= circulars_path%>">
+                                <i class="fa fa-calendar"></i>
+                                    <span class="hide-menu">Manage Circulars
+                                        <span class="label label-rouded label-primary pull-right">0
+                                        </span>
+                                    </span>
+                            </a>
+                        </li>
                         <li>
                             <a href="<%= subjects_path%>">
                                 <i class="fa fa-book    "></i>
@@ -64,6 +73,15 @@
                                     </span>
                                 </a>
                             </li>
+                              <li> 
+                            <a href="<%= circulars_path%>">
+                                <i class="fa fa-calendar"></i>
+                                    <span class="hide-menu">Manage Circulars
+                                        <span class="label label-rouded label-primary pull-right">0
+                                        </span>
+                                    </span>
+                            </a>
+                        </li>
                             <li> 
                                 <a href="<%= exams_path%>">
                                     <i class="fa fa-tachometer"></i>
@@ -84,10 +102,54 @@
                         </li>
                         <%end%>
                         <%if session[:role_id] == 3%>
-                        <li> 
-                            <a href="<%= events_path%>">
+                             <li> 
+                            <a href="<%= dashboard_student_path%>">
                                 <i class="fa fa-tachometer"></i>
-                                    <span class="hide-menu">Manage Events
+                                    <span class="hide-menu">Dashboard
+                                        <span class="label label-rouded label-primary pull-right">0
+                                        </span>
+                                    </span>
+                            </a>
+                        </li>
+                        <li> 
+                            <a href="<%= students_events_path%>">
+                                <i class="fa fa-tachometer"></i>
+                                    <span class="hide-menu">Events
+                                        <span class="label label-rouded label-primary pull-right">0
+                                        </span>
+                                    </span>
+                            </a>
+                        </li>
+                           <li> 
+                            <a href="<%= students_assignment_path%>">
+                                <i class="fa fa-tachometer"></i>
+                                    <span class="hide-menu">Assignment
+                                        <span class="label label-rouded label-primary pull-right">0
+                                        </span>
+                                    </span>
+                            </a>
+                        </li>
+                        <li> 
+                            <a href="<%= students_exam_path%>">
+                                <i class="fa fa-tachometer"></i>
+                                    <span class="hide-menu">Exam
+                                        <span class="label label-rouded label-primary pull-right">0
+                                        </span>
+                                    </span>
+                            </a>
+                        </li>               <li> 
+                            <a href="<%= students_attandance_path%>">
+                                <i class="fa fa-tachometer"></i>
+                                    <span class="hide-menu">Attandance
+                                        <span class="label label-rouded label-primary pull-right">0
+                                        </span>
+                                    </span>
+                            </a>
+                        </li>
+                            </li>                 <li> 
+                            <a href="<%= students_circular_path%>">
+                                <i class="fa fa-tachometer"></i>
+                                    <span class="hide-menu">Circular
                                         <span class="label label-rouded label-primary pull-right">0
                                         </span>
                                     </span>

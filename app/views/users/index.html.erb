@@ -3,7 +3,7 @@
 <h1>Users</h1>
 
 
-<%= link_to 'New User', new_user_path ,  class: "btn btn-inverse"%>
+<%= link_to 'New User', new_user_path({type:@data}) ,  class: "btn btn-inverse"%>
 
 <table class="table table-hover">
   <thead>
@@ -13,6 +13,9 @@
       <th scope="col">Email</th>
       <th scope="col">Password</th>
       <th scope="col">Mobile</th>
+      <%if  @data == "Student"%>
+      <th scope="col">Class Detail</th>
+      <%end%>
       <th scope="col">Role</th>
       <th scope="col" colspan="3">Action</th>
     </tr>
@@ -25,9 +28,12 @@
         <td><%= user.email %></td>
         <td><%= user.password %></td>
         <td><%= user.mobile %></td>
+        <%if  @data == "Student"%>
+        <td><%= user.class_detail.class_name %></td>
+        <%end%>
         <td><%= user.role.role_name %></td>
         <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Edit', edit_user_path(user,({type:@data})) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

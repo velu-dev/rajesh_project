@@ -1,0 +1,35 @@
+<%= form_with(model: circular, local: true) do |form| %>
+  <% if circular.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(circular.errors.count, "error") %> prohibited this circular from being saved:</h2>
+
+      <ul>
+      <% circular.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+
+  <div class="field">
+    <%= form.label :desc %>
+    <%= form.text_field :desc %>
+  </div>
+    <div class="field">
+    <%= form.label :class_detail_id %>
+    <%= form.select(:class_detail_id, ClassDetail.all.collect {|p| [ p.class_name, p.id ] }, {include_blank: "Select something"}, { :class => 'custom-select' }) %>
+  </div>
+  <div class="field">
+    <%= form.label :c_date %>
+    <%= form.text_field :c_date %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

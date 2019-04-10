@@ -1,0 +1,26 @@
+<h1>Exams</h1>
+<table class="table table-hover"> 
+  <thead>
+    <tr>
+      <th  scope="col">Exam name</th>
+      <th  scope="col">Date of exam</th>
+      <th  scope="col">Class</th>
+      <th  scope="col" colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @exams.each do |exam| %>
+      <tr>
+        <td><%= exam.exam_name %></td>
+        <td><%= exam.date_of_exam %></td>
+        <td><%= exam.class_detail.class_name %></td>
+        <td><%= link_to 'Show', exam %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
